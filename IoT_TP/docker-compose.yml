@@ -1,0 +1,20 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto-data
+    networks:
+      mosquitto-net:
+        ipv4_address: 192.168.100.2
+    volumes:
+      - "./mosquitto-data/config:/mosquitto/config"
+      - "./mosquitto-data/data:/mosquitto/data"
+      - "./mosquitto-data/log:/mosquitto/log"
+    ports:
+      - "1883:1883"
+
+networks:
+  mosquitto-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
