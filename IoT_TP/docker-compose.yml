@@ -10,7 +10,22 @@ services:
       - "./mosquitto-data/data:/mosquitto/data"
       - "./mosquitto-data/log:/mosquitto/log"
     ports:
-      - "1883:1883"
+      - "1883:1883" # Expose port 1883 to the host
+    command: mosquitto -c /mosquitto/config/mosquitto.conf
+
+
+  postgres:
+    container_name: postgres-container
+    build:
+      context: ./sql
+      dockerfile: Dockerfile-db
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=changeit
+      - POSTGRES_DB=db
+    ports:
+      - "5432:5432"
+
 
 networks:
   mosquitto-net:

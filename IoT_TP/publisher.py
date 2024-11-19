@@ -1,6 +1,8 @@
 import sys
 import json
 import time
+from datetime import datetime
+
 import paho.mqtt.client as mqtt
 import signal
 
@@ -16,25 +18,32 @@ def load_file_data(filepath):
             # Get header values
             header = file.readline().strip().split(";")
 
-        for line in file:
-            values = line.strip().split(";")
-            record = {key: float(value) for key, value in zip(header,values)}
-            dataset.append(record)
+            # Process each subsequent line in the file
+            for line in file:
+                values = line.strip().split(";")
+                record = {key: float(value) for key, value in zip(header, values)}
+
+                currentDateTime = datetime.now()
+                record["date"] = currentDateTime.strftime("%d/%m/%Y")
+                record["time"] = currentDateTime.strftime("%H:%M:%S")
+                dataset.append(record)
+
     except Exception as e:
         print(f"Error reading file: {e}")
         sys.exit(1)
 
     return dataset
 
+
 def main(argv):
     signal.signal(signal.SIGINT, signal_handler)
 
-    broker = "172.17.0.2"
+    broker = "127.0.0.1"
     port = 1883
     topic = "idc/fc64852"
-    delay = 1000
-
-    dataset = load_file_data("data.txt")
+    delay = 1
+    filepath = "data.txt"
+    dataset = load_file_data(filepath)
     num_msgs_send = len(dataset)
 
     mqttc = mqtt.Client("Publisher")
