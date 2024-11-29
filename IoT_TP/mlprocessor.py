@@ -9,6 +9,7 @@ class MLProcessor:
         try:
             data_scaled = self.scaler.transform(data)
             activity = self.model.predict(data_scaled)
+            print(f"Predicted activity: {activity}")
             return activity[0]
         except Exception as e:
             print(f"Error in prediction: {e}")

@@ -8,6 +8,7 @@ CREATE TABLE Person(
 CREATE TABLE Movement (
     movement_id SERIAL,
     user_id INT references Person(person_id),
+    activity_number INT,
     acceleration_x FLOAT,
     acceleration_y FLOAT,
     acceleration_z FLOAT,
@@ -16,6 +17,5 @@ CREATE TABLE Movement (
     gyro_z FLOAT,
     movement_data VARCHAR(10) NOT NULL,
     movement_time VARCHAR(8) NOT NULL,
-    activity INT NOT NULL,
     PRIMARY KEY (user_id, movement_id)
 );

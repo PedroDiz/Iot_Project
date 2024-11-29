@@ -28,20 +28,15 @@ def main():
     static_topic = "idc/64852/static"
     port = 1883
 
-    timeout = 300
-
     client = mqtt.Client(client_id="subscriber")
     client.on_message = on_message
     client.connect(broker, port)
     client.subscribe(dynamic_topic)
     client.subscribe(static_topic)
-    start = time.time()
-    elapsed = 0
 
     print("Subscribed, now waiting for messages ...")
-    while elapsed != timeout:
+    while True:
         try:
-            elapsed = int(time.time() - start)
             client.loop()
         except KeyboardInterrupt:
             client.loop_stop()
