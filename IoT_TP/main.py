@@ -1,19 +1,17 @@
-from repository import MovementDatabase
-
-db = MovementDatabase("127.0.0.1", "db", "dbuser", "changeit")
+import pandas as pd
+from mlprocessor import MLProcessor
 
 def main():
 
-    # Retrieve Person
-    person = db.retrieve_person(64852)
-    print(f"Person: {person}")
+    ml_processor = MLProcessor("activity_model.pkl", "scaler.pkl")
 
-    # Retrieve rows
-    rows = db.retrieve_movement(64852)
-    for row in rows:
-        print(f"MOV_ID: {row[0]}, USER_ID: {row[1]} Accel_X: {row[2]}, Accel_Y: {row[3]}, Accel_Z: {row[4]}, "
-              f"Gyro_X: {row[5]}, Gyro_Y: {row[6]}, Gyro_Z: {row[7]}, "
-              f"Date: {row[8]}, Time: {row[9]}")
+    # New data to predict (fix by using a DataFrame)
+    columns = ['acceleration_x', 'acceleration_y', 'acceleration_z', 'gyro_x', 'gyro_y', 'gyro_z']
+    new_data = [[0.2650, -0.7814, -0.0076, -0.0590, 0.0325, -2.9296]]
+    new_data_df = pd.DataFrame(new_data, columns=columns)
+
+    activity = ml_processor.predict_activity(new_data_df)
+    print(f"Predicted activity: {activity}")
 
 if __name__ == "__main__":
     main()

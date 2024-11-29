@@ -7,7 +7,6 @@ from processor import Processor
 from repository import MovementDatabase
 
 db = MovementDatabase("127.0.0.1", "db", "dbuser", "changeit")
-
 processor = Processor(db)
 
 def on_message(client, userdata, message):
