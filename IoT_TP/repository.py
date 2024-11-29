@@ -9,9 +9,6 @@ class MovementDatabase:
         self.password = password
 
     def _connect(self):
-        """
-        Establishes and returns a database connection and cursor.
-        """
         try:
             conn = psycopg2.connect(
                 host=self.host,
@@ -25,11 +22,51 @@ class MovementDatabase:
             print(f"Error connecting to the database: {error}")
             return None, None
 
+
+    def insert_person(self, id, age, weight, height):
+        """
+        Opens a connection, inserts a row into the Person table, and closes the connection.
+        """
+        conn, cursor = self._connect()
+        if not conn:
+            return
+
+        try:
+            insert_query = """
+            INSERT INTO Person (person_id, age, weight, height)
+            VALUES (%s, %s, %s, %s)
+            """
+            cursor.execute(insert_query, (id, age, weight, height))
+            conn.commit()
+            print("Row inserted successfully.")
+        except Exception as error:
+            print(f"Error inserting row: {error}")
+            conn.rollback()
+        finally:
+            cursor.close()
+            conn.close()
+
+
+    def retrieve_person(self, id):
+        conn, cursor = self._connect()
+        if not conn:
+            return []
+
+        try:
+            select_query = "SELECT * FROM Person WHERE person_id = %s"
+            cursor.execute(select_query, (id,))
+            row = cursor.fetchone()
+            return row
+        except Exception as error:
+            print(f"Error retrieving row: {error}")
+            return []
+        finally:
+            cursor.close()
+            conn.close()
+
     def insert_movement(self, id, acceleration_x, acceleration_y, acceleration_z,
                    gyro_x, gyro_y, gyro_z, movement_data, movement_time):
-        """
-        Opens a connection, inserts a row into the Movement table, and closes the connection.
-        """
+
         conn, cursor = self._connect()
         if not conn:
             return
@@ -52,17 +89,14 @@ class MovementDatabase:
             cursor.close()
             conn.close()
 
-    def retrieve_movement(self):
-        """
-        Opens a connection, retrieves all rows from the Movement table, and closes the connection.
-        """
+    def retrieve_movement(self, id):
         conn, cursor = self._connect()
         if not conn:
             return []
 
         try:
-            select_query = "SELECT * FROM Movement"
-            cursor.execute(select_query)
+            select_query = "SELECT * FROM Movement WHERE user_id = %s"
+            cursor.execute(select_query, (id,))
             rows = cursor.fetchall()
             return rows
         except Exception as error:

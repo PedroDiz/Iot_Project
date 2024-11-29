@@ -5,3 +5,80 @@
 1731930211: mosquitto version 2.0.20 running
 1731930909: mosquitto version 2.0.20 terminating
 1731930909: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732882245: mosquitto version 2.0.20 starting
+1732882245: Config loaded from /mosquitto/config/mosquitto.conf.
+1732882245: Opening ipv4 listen socket on port 1883.
+1732882245: Opening ipv6 listen socket on port 1883.
+1732882245: mosquitto version 2.0.20 running
+1732882311: New connection from 192.168.100.1:34566 on port 1883.
+1732882311: New client connected from 192.168.100.1:34566 as subscriber (p2, c1, k60).
+1732882320: New connection from 192.168.100.1:42560 on port 1883.
+1732882320: New client connected from 192.168.100.1:42560 as Publisher (p2, c1, k60).
+1732882366: Client Publisher closed its connection.
+1732882367: Client subscriber closed its connection.
+1732882484: New connection from 192.168.100.1:33332 on port 1883.
+1732882484: New client connected from 192.168.100.1:33332 as subscriber (p2, c1, k60).
+1732882489: New connection from 192.168.100.1:33342 on port 1883.
+1732882489: New client connected from 192.168.100.1:33342 as Publisher (p2, c1, k60).
+1732882499: Client Publisher closed its connection.
+1732882499: Client subscriber closed its connection.
+1732882501: New connection from 192.168.100.1:33710 on port 1883.
+1732882501: New client connected from 192.168.100.1:33710 as subscriber (p2, c1, k60).
+1732882505: New connection from 192.168.100.1:33724 on port 1883.
+1732882505: New client connected from 192.168.100.1:33724 as Publisher (p2, c1, k60).
+1732882547: Client Publisher closed its connection.
+1732882548: Client subscriber closed its connection.
+1732882571: mosquitto version 2.0.20 terminating
+1732882571: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732882590: mosquitto version 2.0.20 starting
+1732882590: Config loaded from /mosquitto/config/mosquitto.conf.
+1732882590: Opening ipv4 listen socket on port 1883.
+1732882590: Opening ipv6 listen socket on port 1883.
+1732882590: mosquitto version 2.0.20 running
+1732882620: mosquitto version 2.0.20 terminating
+1732882620: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732882636: mosquitto version 2.0.20 starting
+1732882636: Config loaded from /mosquitto/config/mosquitto.conf.
+1732882636: Opening ipv4 listen socket on port 1883.
+1732882636: Opening ipv6 listen socket on port 1883.
+1732882636: mosquitto version 2.0.20 running
+1732882681: mosquitto version 2.0.20 terminating
+1732882681: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732882697: mosquitto version 2.0.20 starting
+1732882697: Config loaded from /mosquitto/config/mosquitto.conf.
+1732882697: Opening ipv4 listen socket on port 1883.
+1732882697: Opening ipv6 listen socket on port 1883.
+1732882697: mosquitto version 2.0.20 running
+1732882713: New connection from 192.168.100.1:33448 on port 1883.
+1732882713: New client connected from 192.168.100.1:33448 as subscriber (p2, c1, k60).
+1732882715: New connection from 192.168.100.1:33464 on port 1883.
+1732882715: New client connected from 192.168.100.1:33464 as Publisher (p2, c1, k60).
+1732882768: Client Publisher closed its connection.
+1732882768: Client subscriber closed its connection.
+1732882781: New connection from 192.168.100.1:56498 on port 1883.
+1732882781: New client connected from 192.168.100.1:56498 as Publisher (p2, c1, k60).
+1732882783: Client Publisher closed its connection.
+1732882946: New connection from 192.168.100.1:49980 on port 1883.
+1732882946: New client connected from 192.168.100.1:49980 as subscriber (p2, c1, k60).
+1732882952: New connection from 192.168.100.1:37756 on port 1883.
+1732882952: New client connected from 192.168.100.1:37756 as Publisher (p2, c1, k60).
+1732883005: Client Publisher closed its connection.
+1732883005: Client subscriber closed its connection.
+1732883018: New connection from 192.168.100.1:39390 on port 1883.
+1732883018: New client connected from 192.168.100.1:39390 as Publisher (p2, c1, k60).
+1732883021: Client Publisher closed its connection.
+1732883027: mosquitto version 2.0.20 terminating
+1732883027: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732883044: mosquitto version 2.0.20 starting
+1732883044: Config loaded from /mosquitto/config/mosquitto.conf.
+1732883044: Opening ipv4 listen socket on port 1883.
+1732883044: Opening ipv6 listen socket on port 1883.
+1732883044: mosquitto version 2.0.20 running
+1732883064: New connection from 192.168.100.1:56854 on port 1883.
+1732883064: New client connected from 192.168.100.1:56854 as subscriber (p2, c1, k60).
+1732883071: New connection from 192.168.100.1:56862 on port 1883.
+1732883071: New client connected from 192.168.100.1:56862 as Publisher (p2, c1, k60).
+1732883128: Client Publisher closed its connection.
+1732883128: Client subscriber closed its connection.
+1732883134: mosquitto version 2.0.20 terminating
+1732883134: Saving in-memory database to /mosquitto/data//mosquitto.db.

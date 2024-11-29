@@ -4,12 +4,6 @@ import time
 from datetime import datetime
 
 import paho.mqtt.client as mqtt
-import signal
-
-
-def signal_handler(sig, frame):
-    print('You pressed Ctrl+C.\nProgram closed.')
-    sys.exit(0)
 
 def load_file_data(filepath):
     dataset = []
@@ -18,7 +12,6 @@ def load_file_data(filepath):
             # Get header values
             header = file.readline().strip().split(";")
 
-            # Process each subsequent line in the file
             for line in file:
                 values = line.strip().split(";")
                 record = {key: float(value) for key, value in zip(header, values)}
@@ -34,35 +27,55 @@ def load_file_data(filepath):
 
     return dataset
 
+def send_static_data(mqttc, static_data, static_topic):
+    try:
+        static_payload = json.dumps(static_data)
+        print("Sending static data: " + static_payload)
+        mqttc.publish(static_topic, static_payload)
+    except Exception as e:
+        print(f"Error sending static data: {e}")
+        sys.exit(1)
 
-def main(argv):
-    signal.signal(signal.SIGINT, signal_handler)
-
-    broker = "127.0.0.1"
-    port = 1883
-    topic = "idc/fc64852"
-    delay = 1
-    filepath = "data.txt"
-    dataset = load_file_data(filepath)
-    num_msgs_send = len(dataset)
-
-    mqttc = mqtt.Client("Publisher")
-    mqttc.connect(broker, port)
-    msgs_sent = 0
-    mqttc.loop_start()
-
+def send_dynamic_data(mqttc, dataset, dynamic_topic, num_msgs_send, delay):
     for i in range(num_msgs_send):
         try:
             payload = json.dumps(dataset[i])
-            print("Sending msg: " + payload)
-            mqttc.publish(topic, payload)
-            msgs_sent += 1
+            print("Sending dynamic msg: " + payload)
+            mqttc.publish(dynamic_topic, payload)
             time.sleep(delay)
         except KeyboardInterrupt:
             sys.exit()
     mqttc.loop_stop()
 
-    print("Messages sent: " + str(msgs_sent))
+
+def main(argv):
+    broker = "127.0.0.1"
+    port = 1883
+    dynamic_topic = "idc/64852"
+    static_topic = "idc/64852/static"
+    delay = 1
+    filepath = "data.txt"
+
+    static_data = {
+        "bodyweight": 70,
+        "height": 1.75,
+        "age": 30
+    }
+
+    # Load dynamic sensor data
+    dataset = load_file_data(filepath)
+    num_msgs_send = len(dataset)
+
+    # Initialize MQTT client
+    mqttc = mqtt.Client("Publisher")
+    mqttc.connect(broker, port)
+    mqttc.loop_start()
+
+    # Publish static user data
+    send_static_data(mqttc, static_data, static_topic)
+
+    # Publish dynamic sensor data
+    send_dynamic_data(mqttc, dataset, dynamic_topic, num_msgs_send, delay)
 
 
 if __name__ == "__main__":
