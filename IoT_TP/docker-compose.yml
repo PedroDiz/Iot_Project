@@ -26,8 +26,28 @@ services:
     ports:
       - "5432:5432"
 
+  node-red:
+      image: nodered/node-red:latest
+      container_name: node-red
+      environment:
+        - TZ=Europe/Portugal
+      ports:
+        - 1880:1880
+      networks:
+        idc-net:
+          ipv4_address: 172.100.10.15
+      volumes:
+        - ./data/node-red-data:/data
+
 
 networks:
+  idc-net:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 172.100.10.0/24
+
   mosquitto-net:
     driver: bridge
     ipam:

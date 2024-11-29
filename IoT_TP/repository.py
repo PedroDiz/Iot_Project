@@ -73,13 +73,13 @@ class MovementDatabase:
 
         try:
             insert_query = """
-            INSERT INTO Movement (user_id, acceleration_x, acceleration_y, acceleration_z, 
-                                  gyro_x, gyro_y, gyro_z, movement_data, movement_time, activity)
+            INSERT INTO Movement (user_id, activity_number, acceleration_x, acceleration_y, acceleration_z, 
+                                  gyro_x, gyro_y, gyro_z, movement_data, movement_time)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s ,%s)
             """
             cursor.execute(insert_query,
-                           (id, acceleration_x, acceleration_y, acceleration_z,
-                            gyro_x, gyro_y, gyro_z, movement_data, movement_time, activity))
+                           (id, activity, acceleration_x, acceleration_y, acceleration_z,
+                            gyro_x, gyro_y, gyro_z, movement_data, movement_time))
             conn.commit()
             print("Row inserted successfully.")
         except Exception as error:

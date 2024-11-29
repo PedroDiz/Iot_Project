@@ -22,7 +22,7 @@ class Processor:
             else:
                 movement_data = self.extract_movement_parameters(payload)
                 data_to_process = pd.DataFrame([movement_data], columns=columns)
-                activity = self.ml_processor.predict_activity(data_to_process)
+                activity = int(self.ml_processor.predict_activity(data_to_process))
                 self._process_movement_data(id, activity, payload)
 
         except Exception as e:
