@@ -193,3 +193,51 @@
 1732911928: Opening ipv4 listen socket on port 1883.
 1732911928: Opening ipv6 listen socket on port 1883.
 1732911928: mosquitto version 2.0.20 running
+1732912034: New connection from 192.168.100.1:52938 on port 1883.
+1732912034: New client connected from 192.168.100.1:52938 as subscriber (p2, c1, k60).
+1732912039: New connection from 192.168.100.1:43180 on port 1883.
+1732912039: New client connected from 192.168.100.1:43180 as Publisher (p2, c1, k60).
+1732912055: Client Publisher closed its connection.
+1732912056: Client subscriber closed its connection.
+1732912122: New connection from 192.168.100.1:49358 on port 1883.
+1732912122: New client connected from 192.168.100.1:49358 as subscriber (p2, c1, k60).
+1732912134: New connection from 192.168.100.1:39578 on port 1883.
+1732912134: New client connected from 192.168.100.1:39578 as Publisher (p2, c1, k60).
+1732912138: Client Publisher closed its connection.
+1732912139: Client subscriber closed its connection.
+1732912257: New connection from 192.168.100.1:47530 on port 1883.
+1732912257: New client connected from 192.168.100.1:47530 as subscriber (p2, c1, k60).
+1732912261: New connection from 192.168.100.1:47540 on port 1883.
+1732912261: New client connected from 192.168.100.1:47540 as Publisher (p2, c1, k60).
+1732913729: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732914446: Client Publisher closed its connection.
+1732914447: Client subscriber closed its connection.
+1732915530: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732916670: mosquitto version 2.0.20 terminating
+1732916670: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732919342: mosquitto version 2.0.20 starting
+1732919342: Config loaded from /mosquitto/config/mosquitto.conf.
+1732919342: Opening ipv4 listen socket on port 1883.
+1732919342: Opening ipv6 listen socket on port 1883.
+1732919342: mosquitto version 2.0.20 running
+1732919412: New connection from 192.168.100.1:56366 on port 1883.
+1732919412: New client connected from 192.168.100.1:56366 as subscriber (p2, c1, k60).
+1732919412: Client subscriber closed its connection.
+1732919471: New connection from 192.168.100.1:43980 on port 1883.
+1732919471: New client connected from 192.168.100.1:43980 as subscriber (p2, c1, k60).
+1732919479: New connection from 192.168.100.1:54156 on port 1883.
+1732919479: New client connected from 192.168.100.1:54156 as Publisher (p2, c1, k60).
+1732919528: Client Publisher closed its connection.
+1732919529: Client subscriber closed its connection.
+1732919558: New connection from 192.168.100.1:51878 on port 1883.
+1732919558: New client connected from 192.168.100.1:51878 as subscriber (p2, c1, k60).
+1732919565: New connection from 192.168.100.1:51890 on port 1883.
+1732919565: New client connected from 192.168.100.1:51890 as Publisher (p2, c1, k60).
+1732919610: Client Publisher closed its connection.
+1732919612: Client subscriber closed its connection.
+1732919646: New connection from 192.168.100.1:51050 on port 1883.
+1732919646: New client connected from 192.168.100.1:51050 as subscriber (p2, c1, k60).
+1732919654: New connection from 192.168.100.1:51058 on port 1883.
+1732919654: New client connected from 192.168.100.1:51058 as Publisher (p2, c1, k60).
+1732920886: Client Publisher closed its connection.
+1732920887: Client subscriber closed its connection.

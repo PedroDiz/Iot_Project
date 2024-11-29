@@ -1,10 +1,14 @@
 import paho.mqtt.client as mqtt
-import time
 import sys
 import json
 
+from win32api import Sleep
+
 from processor import Processor
 from repository import MovementDatabase
+
+broker = "127.0.0.1"
+port = 1883
 
 db = MovementDatabase("127.0.0.1", "db", "dbuser", "changeit")
 processor = Processor(db)
@@ -14,19 +18,14 @@ def on_message(client, userdata, message):
     try:
         payload = str(message.payload.decode("utf-8"))
         msgs = json.loads(payload)
-        topic = message.topic
-        print(f"Topic: {topic}")
-        processor.process_message(topic, msgs)
+        processor.process_message(message.topic, msgs)
     except Exception as e:
         print(f"Error processing or storing message: {e}")
-    print("")
 
 
 def main():
-    broker = "127.0.0.1"
     dynamic_topic = "idc/64852"
     static_topic = "idc/64852/static"
-    port = 1883
 
     client = mqtt.Client(client_id="subscriber")
     client.on_message = on_message

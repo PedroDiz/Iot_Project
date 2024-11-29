@@ -5,20 +5,17 @@ from datetime import datetime
 
 import paho.mqtt.client as mqtt
 
+broker = "127.0.0.1"
+port = 1883
+
 def load_file_data(filepath):
     dataset = []
     try:
         with open(filepath, 'r') as file:
-            # Get header values
             header = file.readline().strip().split(";")
-
             for line in file:
                 values = line.strip().split(";")
                 record = {key: float(value) for key, value in zip(header, values)}
-
-                currentDateTime = datetime.now()
-                record["date"] = currentDateTime.strftime("%d/%m/%Y")
-                record["time"] = currentDateTime.strftime("%H:%M:%S")
                 dataset.append(record)
 
     except Exception as e:
@@ -39,18 +36,24 @@ def send_static_data(mqttc, static_data, static_topic):
 def send_dynamic_data(mqttc, dataset, dynamic_topic, num_msgs_send, delay):
     for i in range(num_msgs_send):
         try:
-            payload = json.dumps(dataset[i])
+            data_to_send = append_time_to_data(dataset[i])
+            payload = json.dumps(data_to_send)
             print("Sending dynamic msg: " + payload)
             mqttc.publish(dynamic_topic, payload)
             time.sleep(delay)
         except KeyboardInterrupt:
             sys.exit()
-    mqttc.loop_stop()
+        finally:
+            mqttc.loop_stop()
+
+def append_time_to_data(data):
+    currentDateTime = datetime.now()
+    data["date"] = currentDateTime.strftime("%d/%m/%Y")
+    data["time"] = currentDateTime.strftime("%H:%M:%S")
+    return data
 
 
 def main(argv):
-    broker = "127.0.0.1"
-    port = 1883
     dynamic_topic = "idc/64852"
     static_topic = "idc/64852/static"
     delay = 1

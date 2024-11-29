@@ -24,9 +24,6 @@ class MovementDatabase:
 
 
     def insert_person(self, id, age, weight, height):
-        """
-        Opens a connection, inserts a row into the Person table, and closes the connection.
-        """
         conn, cursor = self._connect()
         if not conn:
             return
