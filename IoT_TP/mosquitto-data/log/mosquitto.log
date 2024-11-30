@@ -241,3 +241,6 @@
 1732919654: New client connected from 192.168.100.1:51058 as Publisher (p2, c1, k60).
 1732920886: Client Publisher closed its connection.
 1732920887: Client subscriber closed its connection.
+1732921143: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732921803: mosquitto version 2.0.20 terminating
+1732921803: Saving in-memory database to /mosquitto/data//mosquitto.db.

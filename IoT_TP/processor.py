@@ -7,17 +7,6 @@ file_load = "training.txt"
 model_save = "model.pkl"
 scaler_save = "scaler.pkl"
 
-velocity_map = {
-    range(20, 30): {"male": 1.36, "female": 1.34},
-    range(30, 40): {"male": 1.43, "female": 1.34},
-    range(40, 50): {"male": 1.45, "female": 1.39},
-    range(50, 60): {"male": 1.43, "female": 1.31},
-    range(60, 70): {"male": 1.34, "female": 1.24},
-    range(70, 80): {"male": 1.26, "female": 1.13},
-    range(80, 90): {"male": 0.97, "female": 0.94},
-}
-
-
 class Processor:
     def __init__(self, db):
         self.db = db
@@ -70,15 +59,3 @@ class Processor:
             data["gyro_y"],
             data["gyro_z"]
         ]
-
-    def calculate_burnt_calories(self, age, gender, weight, height, activity):
-        for age_range, genders in velocity_map.items():
-            if age in age_range:
-                velocity = genders.get(gender)
-                break
-
-        if activity == 1:
-            velocity*=2
-
-        return 0.035 * weight + ((velocity ** 2)/height) * 0.029 * weight
-
