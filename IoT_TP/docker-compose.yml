@@ -2,15 +2,15 @@ services:
   mosquitto:
     image: eclipse-mosquitto:latest
     container_name: mosquitto-data
-    networks:
-      mosquitto-net:
-        ipv4_address: 192.168.100.2
     volumes:
       - "./mosquitto-data/config:/mosquitto/config"
       - "./mosquitto-data/data:/mosquitto/data"
       - "./mosquitto-data/log:/mosquitto/log"
     ports:
       - "1883:1883" # Expose port 1883 to the host
+    networks:
+      idc-net:
+        ipv4_address: 172.100.10.10
     command: mosquitto -c /mosquitto/config/mosquitto.conf
 
 
@@ -26,9 +26,21 @@ services:
     ports:
       - "5432:5432"
 
+  #processor:
+    #container_name: processor-container
+    #build:
+      #context: ./processor
+      #dockerfile: Dockerfile-processor
+    #ports:
+      #- "8000:8000"
+    #depends_on:
+      #- postgres
+
   node-red:
-      image: nodered/node-red:latest
       container_name: node-red
+      build:
+        context: ./node-red
+        dockerfile: Dockerfile-nodered
       environment:
         - TZ=Europe/Portugal
       ports:
@@ -47,9 +59,3 @@ networks:
         driver: default
         config:
           - subnet: 172.100.10.0/24
-
-  mosquitto-net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.100.0/24

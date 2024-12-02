@@ -244,3 +244,65 @@
 1732921143: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1732921803: mosquitto version 2.0.20 terminating
 1732921803: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732982153: mosquitto version 2.0.20 starting
+1732982153: Config loaded from /mosquitto/config/mosquitto.conf.
+1732982153: Opening ipv4 listen socket on port 1883.
+1732982153: Opening ipv6 listen socket on port 1883.
+1732982153: mosquitto version 2.0.20 running
+1732982221: New connection from 192.168.100.1:46998 on port 1883.
+1732982221: New client connected from 192.168.100.1:46998 as subscriber (p2, c1, k60).
+1732982227: Client subscriber closed its connection.
+1732983954: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732985755: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732987556: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732989357: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732991158: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732992959: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732994760: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732996561: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1732998362: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733000163: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733001964: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733003765: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733005566: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733007367: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733009168: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733010969: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733012770: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733014571: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733016372: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733166644: mosquitto version 2.0.20 starting
+1733166644: Config loaded from /mosquitto/config/mosquitto.conf.
+1733166644: Opening ipv4 listen socket on port 1883.
+1733166644: Opening ipv6 listen socket on port 1883.
+1733166644: mosquitto version 2.0.20 running
+1733167726: New connection from 172.18.0.1:34826 on port 1883.
+1733167726: New client connected from 172.18.0.1:34826 as Publisher (p2, c1, k60).
+1733167726: Client Publisher disconnected.
+1733167769: New connection from 172.18.0.1:55676 on port 1883.
+1733167769: New client connected from 172.18.0.1:55676 as Publisher (p2, c1, k60).
+1733167769: Client Publisher closed its connection.
+1733167962: mosquitto version 2.0.20 terminating
+1733167962: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733167963: mosquitto version 2.0.20 starting
+1733167963: Config loaded from /mosquitto/config/mosquitto.conf.
+1733167963: Opening ipv4 listen socket on port 1883.
+1733167963: Opening ipv6 listen socket on port 1883.
+1733167963: mosquitto version 2.0.20 running
+1733168015: mosquitto version 2.0.20 terminating
+1733168015: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733168018: mosquitto version 2.0.20 starting
+1733168018: Config loaded from /mosquitto/config/mosquitto.conf.
+1733168018: Opening ipv4 listen socket on port 1883.
+1733168018: Opening ipv6 listen socket on port 1883.
+1733168018: mosquitto version 2.0.20 running
+1733168021: New connection from 172.18.0.1:35738 on port 1883.
+1733168021: New client connected from 172.18.0.1:35738 as Publisher (p2, c1, k60).
+1733168021: Client Publisher closed its connection.
+1733169213: mosquitto version 2.0.20 terminating
+1733169213: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1733169221: mosquitto version 2.0.20 starting
+1733169221: Config loaded from /mosquitto/config/mosquitto.conf.
+1733169221: Opening ipv4 listen socket on port 1883.
+1733169221: Opening ipv6 listen socket on port 1883.
+1733169221: mosquitto version 2.0.20 running

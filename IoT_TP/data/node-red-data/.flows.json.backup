@@ -1,0 +1,586 @@
+[
+    {
+        "id": "62cdb7e6112fb255",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3d243bf33aaf42bf",
+        "type": "mqtt-broker",
+        "name": "steps-distance-topic",
+        "broker": "172.100.10.10",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "952211b53ae0388d",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "64063eacc7676ffd",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "9af74b02f3cc6b35",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "405cc6477c40da3c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "9af74b02f3cc6b35",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "6474eb593b44ed27",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "172.100.10.10",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "11edfb547810ab99",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "172.100.10.10",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ea06e2e3d554b056",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "88763b0c8c75258c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "ea06e2e3d554b056",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "11fbf876ba0c6a43",
+        "type": "mqtt in",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "topic": "steps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3d243bf33aaf42bf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "dfd124f7806625d6",
+                "3a7c3c559ffcf223"
+            ]
+        ]
+    },
+    {
+        "id": "dfd124f7806625d6",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "steps-parser",
+        "func": "let steps = msg.payload.steps;\nmsg.payload = steps;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "96e9e78d4be29ee1",
+                "53c26949e1159401"
+            ]
+        ]
+    },
+    {
+        "id": "3a7c3c559ffcf223",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "distance-parser",
+        "func": "let distance = msg.payload.distance;\nmsg.payload = distance;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "470459023952ea28",
+                "af3322e65aa40543"
+            ]
+        ]
+    },
+    {
+        "id": "53c26949e1159401",
+        "type": "ui_gauge",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "group": "405cc6477c40da3c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "steps",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "af3322e65aa40543",
+        "type": "ui_gauge",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "group": "405cc6477c40da3c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "meters",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "96e9e78d4be29ee1",
+        "type": "debug",
+        "z": "62cdb7e6112fb255",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "470459023952ea28",
+        "type": "debug",
+        "z": "62cdb7e6112fb255",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1e46fdb5da7b4df3",
+        "type": "mqtt in",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "topic": "calories",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6474eb593b44ed27",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "47b2122df3131b56"
+            ]
+        ]
+    },
+    {
+        "id": "22d72ae0d0e69c0b",
+        "type": "ui_gauge",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "group": "405cc6477c40da3c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "calories burned",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "47b2122df3131b56",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "calories-parser",
+        "func": "let calories_burned = msg.payload.calories_burned;\nmsg.payload = calories_burned;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 600,
+        "wires": [
+            [
+                "22d72ae0d0e69c0b"
+            ]
+        ]
+    },
+    {
+        "id": "188e8db4f152e9d2",
+        "type": "ui_chart",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "group": "88763b0c8c75258c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42e925084508ce15",
+        "type": "mqtt in",
+        "z": "62cdb7e6112fb255",
+        "name": "",
+        "topic": "activity_time",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "11edfb547810ab99",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 740,
+        "wires": [
+            [
+                "3f7ed2c98287db1d",
+                "bf64377a041d67b7"
+            ]
+        ]
+    },
+    {
+        "id": "3f7ed2c98287db1d",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "activity_time_helper",
+        "func": "let walking_hours = msg.payload.activity_time.walking.hours\nlet walking_minutes = msg.payload.activity_time.walking.minutes\nlet walking_seconds = msg.payload.activity_time.walking.seconds\n\nmsg.payload = walking_hours + walking_minutes + walking_seconds\nmsg.topic = \"Walking\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 740,
+        "wires": [
+            [
+                "188e8db4f152e9d2",
+                "da03984e3e000645"
+            ]
+        ]
+    },
+    {
+        "id": "da03984e3e000645",
+        "type": "debug",
+        "z": "62cdb7e6112fb255",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "bf64377a041d67b7",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "activity_time_helper_for_running",
+        "func": "let running_hours = msg.payload.activity_time.walking.hours\nlet running_minutes = msg.payload.activity_time.walking.minutes\nlet running_seconds = msg.payload.activity_time.walking.seconds\n\nmsg.payload = running_hours + running_minutes + running_seconds\nmsg.topic = \"Running\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 800,
+        "wires": [
+            [
+                "188e8db4f152e9d2"
+            ]
+        ]
+    }
+]
