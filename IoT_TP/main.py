@@ -1,39 +1,46 @@
-from processor.processors.activityTimeProcessor import ActivityTimeProcessor
-from processor.processors.caloriesProcessor import CaloriesProcessor
+import json
+
+import paho.mqtt.client as mqtt
+from processor.processors import ActivityTimeProcessor, CaloriesProcessor, StepProcessor
 from processor.repository import MovementDatabase
-from processor.processors.stepProcessor import StepProcessor
 
 repo = MovementDatabase("127.0.0.1", "db", "dbuser", "changeit")
 
 def main():
     movements = repo.retrieve_movement(64852)
 
-    #print movements length
-    print(len(movements))
-
     for movement in movements:
         print(movement)
 
-    modified_data = [record[2:] for record in movements]
+    activity_processor = ActivityTimeProcessor()
+    activity_time = activity_processor.process(movements)
+    print("Activity Time: ")
+    print(activity_time)
 
-    # Print the result
-    for record in modified_data:
-        print(record)
+    broker = "127.0.0.1"
+    port = 1883
+    topic = "activity_time"
+    client = mqtt.Client(client_id="publisher")
+    client.connect(broker, port)
+    client.loop_start()
 
-    """
-    person_data = repo.retrieve_person(64852)
-    step_processor = StepProcessor()
-    steps, distance_covered = step_processor.process(person_data, movements)
-    step_processor.send_data_to_nodered(steps, distance_covered)
+    data_to_send = {
+        "activity_time": activity_time,
+    }
 
-    calories_processor = CaloriesProcessor()
-    calories_burned = calories_processor.process(person_data, movements)
-    calories_processor.send_data_to_nodered(calories_burned)
+    # Print the data to be sent
+    print("Data to be sent: ")
+    print(data_to_send)
 
-    activity_time_processor = ActivityTimeProcessor()
-    activity_time = activity_time_processor.process(movements)
-    activity_time_processor.send_data_to_nodered(activity_time)
-    """
+    try:
+        payload = json.dumps(data_to_send)
+        print("Sending dynamic msg: " + payload)
+        client.publish(topic, payload)
+    except KeyboardInterrupt:
+        print("Error sending data")
+    finally:
+        client.loop_stop()
+
 
 
 if __name__ == "__main__":
