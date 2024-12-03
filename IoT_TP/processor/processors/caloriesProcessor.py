@@ -19,9 +19,9 @@ class CaloriesProcessor:
 
         # Retrieve age, weight, height, gender from person_data
         age = person_data[1]
-        weight = person_data[2]
-        height = person_data[3]
-        gender = "male" # for now, because db doesn't have this attribute
+        gender = person_data[2]
+        weight = person_data[3]
+        height = person_data[4]
 
         # Retrieve activity from movement_data
         activity_values = [item[2] for item in movement_data]
@@ -38,19 +38,20 @@ class CaloriesProcessor:
 
         burnt_calories = 0
         for i in range(0, len(activity_values), 60):
-            activity = sum(activity_values[i:i+60]) / 60
+            chunk = activity_values[i:i+60]
+            activity = sum(chunk) / len(chunk)
             # If the activity average is above 0.5 multiply the velocity by 2
             temp_velocity = velocity
 
             if activity > 0.5:
                 temp_velocity *= 2
 
-            burnt_calories += 0.035 * weight + ((temp_velocity ** 2) / height) * 0.029 * weight
+            burnt_calories += ((0.035 * weight + ((temp_velocity ** 2) / height) * 0.029 * weight) / 60) * len(chunk)
         return round(burnt_calories)
 
     def send_data_to_nodered(self, burnt_calories):
 
-        broker = "127.0.0.1"
+        broker = "172.100.10.10"
         port = 1883
         topic = "calories"
         client = mqtt.Client(client_id="publisher")

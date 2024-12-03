@@ -23,17 +23,17 @@ class MovementDatabase:
             return None, None
 
 
-    def insert_person(self, id, age, weight, height):
+    def insert_person(self, id, age, gender, weight, height):
         conn, cursor = self._connect()
         if not conn:
             return
 
         try:
             insert_query = """
-            INSERT INTO Person (person_id, age, weight, height)
-            VALUES (%s, %s, %s, %s)
+            INSERT INTO Person (person_id, age, gender, weight, height)
+            VALUES (%s, %s, %s, %s, %s)
             """
-            cursor.execute(insert_query, (id, age, weight, height))
+            cursor.execute(insert_query, (id, age, gender, weight, height))
             conn.commit()
             print("Row inserted successfully.")
         except Exception as error:

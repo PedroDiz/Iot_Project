@@ -23,18 +23,24 @@ services:
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=changeit
       - POSTGRES_DB=db
+    networks:
+      idc-net:
+        ipv4_address: 172.100.10.20
     ports:
       - "5432:5432"
 
-  #processor:
-    #container_name: processor-container
-    #build:
-      #context: ./processor
-      #dockerfile: Dockerfile-processor
-    #ports:
-      #- "8000:8000"
-    #depends_on:
-      #- postgres
+  processor:
+    container_name: processor-container
+    build:
+      context: ./processor
+      dockerfile: Dockerfile-processor
+    ports:
+      - "8000:8000"
+    networks:
+      idc-net:
+        ipv4_address: 172.100.10.5
+    depends_on:
+      - postgres
 
   node-red:
       container_name: node-red

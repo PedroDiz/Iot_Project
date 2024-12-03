@@ -53,7 +53,7 @@ def append_time_to_data(data):
     return data
 
 
-def main(argv):
+def main():
     dynamic_topic = "idc/64852"
     static_topic = "idc/64852/static"
     delay = 1
@@ -62,7 +62,8 @@ def main(argv):
     static_data = {
         "bodyweight": 70,
         "height": 1.75,
-        "age": 30
+        "age": 30,
+        "gender" : "male"
     }
 
     # Load dynamic sensor data
@@ -82,4 +83,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

@@ -39,16 +39,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "952211b53ae0388d",
-        "type": "ui_group",
-        "name": "Default",
-        "tab": "",
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "64063eacc7676ffd",
         "type": "ui_base",
         "theme": {
@@ -159,7 +149,9 @@
         "tab": "9af74b02f3cc6b35",
         "order": 1,
         "disp": true,
-        "width": 6
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "6474eb593b44ed27",
@@ -224,18 +216,11 @@
         "sessionExpiry": ""
     },
     {
-        "id": "ea06e2e3d554b056",
-        "type": "ui_tab",
-        "name": "Tab 2",
-        "icon": "dashboard",
-        "order": 2
-    },
-    {
-        "id": "88763b0c8c75258c",
+        "id": "97d78bc29102768e",
         "type": "ui_group",
-        "name": "Group 1",
-        "tab": "ea06e2e3d554b056",
-        "order": 1,
+        "name": "Group 2",
+        "tab": "9af74b02f3cc6b35",
+        "order": 2,
         "disp": true,
         "width": 6
     },
@@ -465,7 +450,7 @@
         "type": "ui_chart",
         "z": "62cdb7e6112fb255",
         "name": "",
-        "group": "88763b0c8c75258c",
+        "group": "97d78bc29102768e",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -522,7 +507,9 @@
         "wires": [
             [
                 "3f7ed2c98287db1d",
-                "bf64377a041d67b7"
+                "bf64377a041d67b7",
+                "e7214443f9997ce4",
+                "bac0ccbc07a6be5c"
             ]
         ]
     },
@@ -559,8 +546,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 860,
+        "x": 700,
+        "y": 840,
         "wires": []
     },
     {
@@ -582,5 +569,62 @@
                 "188e8db4f152e9d2"
             ]
         ]
+    },
+    {
+        "id": "e5e84f0bfba4e376",
+        "type": "ui_text",
+        "z": "62cdb7e6112fb255",
+        "group": "97d78bc29102768e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Running time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "e7214443f9997ce4",
+        "type": "function",
+        "z": "62cdb7e6112fb255",
+        "name": "time_append_function",
+        "func": "let running_hours = msg.payload.activity_time.running.hours;\nlet running_minutes = msg.payload.activity_time.running.minutes;\nlet running_seconds = msg.payload.activity_time.running.seconds;\n\nmsg.payload = running_hours.toString() + \":\" + running_minutes.toString() + \":\" + running_seconds.toString();\nmsg.topic = \"Running\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 920,
+        "wires": [
+            [
+                "e5e84f0bfba4e376"
+            ]
+        ]
+    },
+    {
+        "id": "bac0ccbc07a6be5c",
+        "type": "debug",
+        "z": "62cdb7e6112fb255",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 660,
+        "wires": []
     }
 ]

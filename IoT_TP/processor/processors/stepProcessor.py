@@ -40,8 +40,8 @@ class StepProcessor:
 
         # Retrieve height, gender from person_data
         age = person_data[1]
-        height = person_data[3]
-        gender = "male"
+        gender = person_data[2]
+        height = person_data[4]
 
         # get the step length of the person
         step_length = 0
@@ -67,7 +67,8 @@ class StepProcessor:
 
         nr_steps = 0
         for i in range(0, len(activity_values), 60):
-            activity = sum(activity_values[i:i+60]) / 60
+            chunk = activity_values[i:i+60]
+            activity = sum(chunk) / len(chunk)
 
             temp_velocity = velocity
 
@@ -75,7 +76,7 @@ class StepProcessor:
             if activity > 0.5:
                 temp_velocity *= 2
 
-            nr_steps += (temp_velocity / step_length) * 60
+            nr_steps += (temp_velocity / step_length) * len(chunk)
             print(f"Activity: {activity}, Steps: {nr_steps}")
 
         nr_steps = round(nr_steps)
@@ -91,7 +92,7 @@ class StepProcessor:
 
     def send_data_to_nodered(self, steps, distance):
 
-        broker = "127.0.0.1"
+        broker = "172.100.10.10"
         port = 1883
         topic = "steps"
         client = mqtt.Client(client_id="publisher")
@@ -102,6 +103,10 @@ class StepProcessor:
             "steps": steps,
             "distance": distance
         }
+
+        # Print data to send
+        print("Data to be sent: ")
+        print(data_to_send)
 
         try:
             payload = json.dumps(data_to_send)

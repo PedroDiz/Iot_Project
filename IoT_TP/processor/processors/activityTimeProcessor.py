@@ -2,7 +2,7 @@ import json
 
 import paho.mqtt.client as mqtt
 
-class ActivityTimeProcessor():
+class ActivityTimeProcessor:
 
     def convert_to_hours_minutes_seconds(self, seconds):
         hours = seconds // 3600
@@ -50,7 +50,7 @@ class ActivityTimeProcessor():
 
     def send_data_to_nodered(self, activity_time):
 
-        broker = "127.0.0.1"
+        broker = "172.100.10.10"
         port = 1883
         topic = "activity_time"
         client = mqtt.Client(client_id="publisher")

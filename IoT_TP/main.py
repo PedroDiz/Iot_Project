@@ -11,6 +11,16 @@ def main():
     #print movements length
     print(len(movements))
 
+    for movement in movements:
+        print(movement)
+
+    modified_data = [record[2:] for record in movements]
+
+    # Print the result
+    for record in modified_data:
+        print(record)
+
+    """
     person_data = repo.retrieve_person(64852)
     step_processor = StepProcessor()
     steps, distance_covered = step_processor.process(person_data, movements)
@@ -23,7 +33,7 @@ def main():
     activity_time_processor = ActivityTimeProcessor()
     activity_time = activity_time_processor.process(movements)
     activity_time_processor.send_data_to_nodered(activity_time)
-
+    """
 
 
 if __name__ == "__main__":

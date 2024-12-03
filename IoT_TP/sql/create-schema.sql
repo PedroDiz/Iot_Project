@@ -1,6 +1,7 @@
 CREATE TABLE Person(
     person_id INT PRIMARY KEY,
     age INT NOT NULL,
+    gender VARCHAR(6) NOT NULL,
     weight FLOAT NOT NULL,
     height FLOAT NOT NULL
 );
